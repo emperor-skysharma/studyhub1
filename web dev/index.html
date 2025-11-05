@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>KNIT Sultanpur Study Hub</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <div class="logo">KNIT</div>
+        <div>
+          <div class="title">KNIT Sultanpur — Study Hub</div>
+          <div class="subtitle">Notes • Past Papers • Projects • Guides</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#upload">Upload</a>
+        <a href="#about">About</a>
+        <a href="login.html" id="loginBtn">Login</a>
+        <a href="signup.html" id="signupBtn">Sign Up</a>
+        <a href="#" id="logoutBtn" style="display: none">Logout</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <section class="hero">
+        <div class="text">
+          <h1>Welcome Students — find course notes and solved papers</h1>
+          <p>Community-driven resources for KNIT Sultanpur students.</p>
+          <div class="search-bar">
+            <input id="search" type="search" placeholder="Search resources" />
+            <select id="deptFilter">
+              <option value="all">All Departments</option>
+              <option value="CSE">CSE</option>
+              <option value="ECE">ECE</option>
+              <option value="ME">ME</option>
+              <option value="CE">CE</option>
+              <option value="EE">EE</option>
+            </select>
+            <select id="semFilter">
+              <option value="all">All Semesters</option>
+              <option value="1">Sem 1</option>
+              <option value="2">Sem 2</option>
+              <option value="3">Sem 3</option>
+              <option value="4">Sem 4</option>
+              <option value="5">Sem 5</option>
+              <option value="6">Sem 6</option>
+              <option value="7">Sem 7</option>
+              <option value="8">Sem 8</option>
+            </select>
+            <button id="clear">Clear</button>
+          </div>
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop"
+          alt="students"
+        />
+      </section>
+
+      <main>
+        <h2>Latest Resources</h2>
+        <div id="grid" class="grid"></div>
+        <div id="empty" class="empty">No resources yet. Upload something!</div>
+
+        <section id="upload" class="uploader">
+          <h3>Upload a Resource</h3>
+          <p id="loginNotice" style="color: red; display: none">
+            ⚠️ Please login to upload.
+          </p>
+
+          <div class="form-row">
+            <input
+              id="title"
+              placeholder="Title (e.g. Data Structures Notes)"
+            />
+            <select id="type">
+              <option value="notes">Notes</option>
+              <option value="papers">Past Paper</option>
+              <option value="projects">Project</option>
+              <option value="guides">Guide</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <select id="dept">
+              <option value="CSE">CSE</option>
+              <option value="ECE">ECE</option>
+              <option value="ME">ME</option>
+              <option value="CE">CE</option>
+              <option value="EE">EE</option>
+            </select>
+            <select id="sem">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <input id="url" placeholder="Public URL to file" />
+          </div>
+          <div class="form-row">
+            <button id="addBtn">Add Resource</button>
+            <button id="resetBtn">Reset</button>
+          </div>
+        </section>
+
+        <section id="about">
+          <h3>About</h3>
+          <p>
+            KNIT Sultanpur Freshers Hub is a student-led initiative designed to simplify learning and sharing.
+           Explore curated study materials, upload your own resources, and be part of a growing community built by KNITians, for KNITians.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <footer>© 2025 KNIT Freshers Hub</footer>
+
+    <template id="cardTpl">
+      <div class="card">
+        <div class="meta"></div>
+        <h3 class="title"></h3>
+        <p class="desc"></p>
+        <div class="actions">
+          <a class="btn" target="_blank">Open</a>
+          <button class="btn-ghost deleteBtn" style="display: none">
+            Delete
+          </button>
+        </div>
+      </div>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign Up - KNIT Hub</title>
+  <link rel="stylesheet" href="signup.css" />
+</head>
+<body>
+  <div class="login-card">
+    <h2>Create Account</h2>
+    <input id="name" placeholder="Full Name" required />
+    <input id="email" type="email" placeholder="College Email (@knit.ac.in)" required />
+    <input id="password" type="password" placeholder="Password" required />
+    <button id="signup">Sign Up</button>
+    <p>Already have an account? <a href="login.html">Login</a></p>
+  </div>
+
+  <script>
+    // Get inputs first
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const signupBtn = document.getElementById("signup");
+
+    signupBtn.onclick = () => {
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      if (!name || !email || !password) {
+        alert("All fields are required!");
+        return;
+      }
+
+      if (!email.endsWith("@knit.ac.in")) {
+        alert("Please use your official @knit.ac.in email.");
+        return;
+      }
+
+      // Load existing users or create new list
+      const users = JSON.parse(localStorage.getItem("users") || "{}");
+
+      if (users[email]) {
+        alert("An account with this email already exists!");
+        return;
+      }
+
+      // Save new user
+      users[email] = { name, password };
+      localStorage.setItem("users", JSON.stringify(users));
+
+      // Mark user as logged in
+      localStorage.setItem("loggedIn", email);
+
+      alert("Account created successfully!");
+      window.location.href = "index.html";
+    };
+  </script>
+</body>
+</html>
