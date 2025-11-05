@@ -1,2 +1,1 @@
-# studyhub1
-ejn
+# studyhub1“This mini project is built using HTML, CSS, and JavaScript and functions completely on the frontend without any backend or database. It supports offline access through LocalStorage and uses college email authentication to allow secure uploads.”
